@@ -1,0 +1,66 @@
+# Snow White Theme for Ghostty
+theme = light
+
+# Font Configuration
+font-family = JetBrainsMono Nerd Font
+font-size = 14
+font-style = normal
+font-style-bold = bold
+font-style-italic = italic
+font-style-bold-italic = bold-italic
+
+# Colors - Snow White Theme
+background = ffffff
+foreground = 000000
+
+# Cursor
+cursor-color = 000000
+cursor-style = beam
+cursor-style-blink = true
+
+# Selection
+selection-background = 000000
+selection-foreground = ffffff
+
+# ANSI Colors (Black & White palette)
+palette = 0=#000000
+palette = 1=#cc0000
+palette = 2=#4e9a06
+palette = 3=#c4a000
+palette = 4=#3465a4
+palette = 5=#75507b
+palette = 6=#06989a
+palette = 7=#d3d7cf
+palette = 8=#555753
+palette = 9=#ef2929
+palette = 10=#8ae234
+palette = 11=#fce94f
+palette = 12=#729fcf
+palette = 13=#ad7fa8
+palette = 14=#34e2e2
+palette = 15=#eeeeec
+
+# Window
+window-padding-x = 8
+window-padding-y = 8
+window-decoration = false
+
+# Tab Bar
+gtk-tabs-location = top
+
+# Performance
+adjust-cell-width = 0
+adjust-cell-height = 0
+
+# Bell
+shell-integration-features = no-cursor,no-sudo
+audible-bell = false
+visual-bell = false
+
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-paste-protection = false
+
+# Mouse
+mouse-hide-while-typing = true
