@@ -35,7 +35,7 @@ exec --no-startup-id nm-applet
 
 # Variables
 set $mod Mod4
-set $term ghostty
+set $term kitty
 set $browser zen-browser
 set $filemanager thunar
 
