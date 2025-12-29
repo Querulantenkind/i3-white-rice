@@ -1,0 +1,39 @@
+<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg">
+  <!-- Pure white background -->
+  <rect width="1920" height="1080" fill="#ffffff"/>
+  
+  <!-- Subtle snowflakes pattern -->
+  <defs>
+    <g id="snowflake" opacity="0.15">
+      <line x1="0" y1="-10" x2="0" y2="10" stroke="#e8e8e8" stroke-width="1"/>
+      <line x1="-10" y1="0" x2="10" y2="0" stroke="#e8e8e8" stroke-width="1"/>
+      <line x1="-7" y1="-7" x2="7" y2="7" stroke="#e8e8e8" stroke-width="1"/>
+      <line x1="-7" y1="7" x2="7" y2="-7" stroke="#e8e8e8" stroke-width="1"/>
+    </g>
+  </defs>
+  
+  <!-- Distributed snowflakes -->
+  <use href="#snowflake" transform="translate(150, 100)"/>
+  <use href="#snowflake" transform="translate(450, 250)"/>
+  <use href="#snowflake" transform="translate(850, 150)"/>
+  <use href="#snowflake" transform="translate(1250, 300)"/>
+  <use href="#snowflake" transform="translate(1650, 200)"/>
+  
+  <use href="#snowflake" transform="translate(300, 500)"/>
+  <use href="#snowflake" transform="translate(700, 600)"/>
+  <use href="#snowflake" transform="translate(1100, 550)"/>
+  <use href="#snowflake" transform="translate(1500, 700)"/>
+  <use href="#snowflake" transform="translate(200, 800)"/>
+  
+  <use href="#snowflake" transform="translate(550, 850)"/>
+  <use href="#snowflake" transform="translate(950, 900)"/>
+  <use href="#snowflake" transform="translate(1350, 950)"/>
+  <use href="#snowflake" transform="translate(1750, 850)"/>
+  
+  <!-- Smaller accent snowflakes -->
+  <use href="#snowflake" transform="translate(600, 400) scale(0.5)"/>
+  <use href="#snowflake" transform="translate(1000, 450) scale(0.5)"/>
+  <use href="#snowflake" transform="translate(400, 650) scale(0.5)"/>
+  <use href="#snowflake" transform="translate(1400, 600) scale(0.5)"/>
+  <use href="#snowflake" transform="translate(800, 300) scale(0.5)"/>
+</svg>

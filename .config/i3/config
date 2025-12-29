@@ -1,0 +1,206 @@
+# Font
+font pango:GohuFont 12
+
+# Colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #000000 #000000 #ffffff #000000   #000000
+client.focused_inactive #000000 #ffffff #000000 #000000   #000000
+client.unfocused        #000000 #ffffff #000000 #000000   #000000
+client.urgent           #000000 #ffffff #000000 #000000   #000000
+client.placeholder      #000000 #ffffff #000000 #000000   #000000
+
+client.background       #ffffff
+
+# Window borders
+default_border pixel 2
+default_floating_border pixel 2
+
+# Gaps
+gaps inner 8
+gaps outer 0
+smart_gaps on
+smart_borders on
+
+# Exec
+exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/446984.jpg
+exec_always --no-startup-id picom -b
+exec_always --no-startup-id dunst
+exec --no-startup-id clipmenud
+exec_always --no-startup-id autotiling
+exec --no-startup-id redshift -l 50:10 -t 6500:3500
+exec_always --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec --no-startup-id udiskie -t
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+exec --no-startup-id nm-applet
+
+# Variables
+set $mod Mod4
+set $term kitty
+set $browser zen-browser
+set $filemanager thunar
+
+# Launching apps
+bindsym $mod+Return exec $term
+bindsym $mod+space exec rofi -show drun -theme snow
+bindsym $mod+Shift+b exec $browser
+bindsym $mod+Shift+Mod1+b exec $browser --private-window
+bindsym $mod+Shift+f exec $filemanager
+bindsym $mod+Shift+t exec $term -e btop
+bindsym $mod+Shift+n exec $term -e nvim
+
+# Dropdown terminal (F12)
+bindsym F12 exec tdrop -ma -w 80% -h 40% -x 10% -y 0 $term
+
+# Rofi extras
+bindsym $mod+Control+equal exec rofi -show calc -modi calc -no-show-match -no-sort -theme snow
+bindsym $mod+period exec rofi -show emoji -modi emoji -theme snow
+bindsym $mod+slash exec rofi -show window -theme snow
+
+# Script launcher
+bindsym $mod+r exec --no-startup-id ~/.config/scripts/launchers/script-launcher.sh
+
+# Window controls
+bindsym $mod+w kill
+bindsym $mod+Control+Delete [class=".*"] kill
+bindsym $mod+t floating toggle
+bindsym $mod+f fullscreen toggle
+bindsym $mod+Shift+space bar mode toggle
+
+# Scratchpad
+bindsym $mod+s scratchpad show
+bindsym $mod+Mod1+s move scratchpad
+
+# Focus movement
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Window movement
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Window resizing
+bindsym $mod+equal resize shrink width 10 px or 10 ppt
+bindsym $mod+minus resize grow width 10 px or 10 ppt
+bindsym $mod+Shift+equal resize shrink height 10 px or 10 ppt
+bindsym $mod+Shift+minus resize grow height 10 px or 10 ppt
+
+# Workspaces
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+
+# Move to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+
+# Workspace navigation
+bindsym $mod+Tab workspace next
+bindsym $mod+Shift+Tab workspace prev
+
+# Screenshots (requires scrot and xclip)
+bindsym Print exec scrot -s '/tmp/screenshot.png' -e 'xclip -selection clipboard -t image/png -i $f && rm $f'
+bindsym Shift+Print exec scrot '/tmp/screenshot.png' -e 'xclip -selection clipboard -t image/png -i $f && rm $f'
+
+# Notifications (requires dunst)
+bindsym $mod+comma exec dunstctl close
+bindsym $mod+Shift+comma exec dunstctl close-all
+bindsym $mod+Control+comma exec dunstctl set-paused toggle
+bindsym $mod+Mod1+comma exec dunstctl history-pop
+
+# Clipboard (requires xdotool, clipmenu)
+bindsym $mod+c exec xdotool key --clearmodifiers ctrl+c
+bindsym $mod+v exec xdotool key --clearmodifiers ctrl+v
+bindsym $mod+x exec xdotool key --clearmodifiers ctrl+x
+bindsym $mod+Control+v exec clipmenu -i -theme snow
+
+# Lockscreen (i3lock-color)
+bindsym $mod+l exec i3lock -c ffffff --inside-color=ffffff --ring-color=000000 --line-uses-ring --keyhl-color=000000 --bshl-color=000000 --separator-color=000000 --insidever-color=ffffff --ringver-color=000000 --insidewrong-color=ffffff --ringwrong-color=000000
+
+# Media keys (brightnessctl, pamixer)
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioMute exec pamixer -t
+bindsym XF86AudioMicMute exec pamixer --default-source -t
+
+# Media player controls (playerctl)
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioStop exec playerctl stop
+
+# Redshift toggle
+bindsym $mod+Control+n exec pkill -USR1 redshift
+
+# System controls
+bindsym $mod+Escape exec rofi -show powermenu -modi "powermenu:rofi-power-menu --choices=shutdown/reboot/suspend/lockscreen" -theme snow
+
+# Splits and layout
+bindsym $mod+h split h
+bindsym $mod+b split v
+bindsym $mod+e layout toggle split
+bindsym $mod+g layout tabbed
+
+# Restart/reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+c reload
+
+# Bar (Polybar)
+bar {
+    mode invisible
+}
+
+# Workspace assignments
+assign [class="zen-browser"] workspace 2
+assign [class="Code"] workspace 3
+assign [class="code-oss"] workspace 3
+assign [class="obsidian"] workspace 4
+assign [class="Typora"] workspace 5
+assign [class="discord"] workspace 8
+assign [class="Signal"] workspace 8
+
+# Floating rules
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="dialog"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="Blueman-manager"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Thunar" title="File Operation"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="mpv"] floating enable
+for_window [title="Calculator"] floating enable
+
+# Window marks
+bindsym $mod+m exec i3-input -F 'mark %s' -P 'Mark: '
+bindsym $mod+apostrophe exec i3-input -F '[con_mark="%s"] focus' -P 'Go to: '
+bindsym $mod+Shift+m exec i3-input -F 'unmark %s' -P 'Unmark: '
+
+# Jump to urgent window
+bindsym $mod+u [urgent=latest] focus
+
+# Focus follows mouse (disable for keyboard workflow)
+focus_follows_mouse no
+
+# Mouse warping
+mouse_warping none
